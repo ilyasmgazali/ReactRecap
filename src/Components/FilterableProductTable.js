@@ -1,12 +1,17 @@
 import React from 'react'
-import SearchBar from './SearchBar.js'
-import ProductTable from './ProductTable.js'
+import SearchBar from './SearchBar'
+import ProductTable from './ProductTable'
+import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
+import ProductCategoryRow from './ProductCategoryRow';
+import ProductRow from './ProductRow';
 
-export default function FilterableProductTable() {
+/* Outer component */
+export default function FilterableProductTable(props) {
+  const {products} = props;
   return (
     <div>
-       FilterableProductTable:  
-      <SearchBar/>
+      <SearchBar products={products}/>
+      <ProductTable producs={products}/>
      </div>
   )
 }
