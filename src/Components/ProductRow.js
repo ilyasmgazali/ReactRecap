@@ -2,12 +2,12 @@ import React from 'react'
 
 export default function ProductRow(props) {
   const { product } = props;
+  //inline style
   const name = product.stocked ? product.name : <span style={{color: 'red'}}> {product.name} </span>
-
   return (
     <tr>
-      <td>Football</td>
-      <td>$49.99</td>
+      <td>{name}</td>
+      <td>{product.price}</td>
     </tr>
   )
 }

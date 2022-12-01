@@ -13,6 +13,6 @@ const PRODUCTS = [
 function App() {
   return (
     <FilterableProductTable products={PRODUCTS}/>
-  );
+    );
 }
 export default App;

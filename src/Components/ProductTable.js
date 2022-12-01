@@ -2,17 +2,30 @@ import React from 'react'
 import ProductCategoryRow from './ProductCategoryRow'
 import ProductRow from './ProductRow'
 export default function ProductTable(props) {
-  const { products } = props;
-  
+  const { products, inStockOnly, filterText } = props;
+    
   const rows = [];
   let lastCategory = null;
   
   products.forEach((product)=>{
-    if(product.cateogry !==lastCategory){//for each category, put into a row
+    // conditional for search
+    if(product.name.indexOf(filterText)){
+      return;
+    }
+
+    //if checked, dont print product
+    if (inStockOnly && !product.stocked ){
+      return //end loop for this cycle and dont return it 
+    }
+
+    console.log("product log here");
+    console.log(product);
+    console.log("product log here");
+    if(product.category !==lastCategory){//for each category, put into a row
       rows.push(
         <ProductCategoryRow
-          cateogry={product.cateogry}
-          key={product.cateogry}
+          category={product.category}
+          key={product.category}
         />
       )
     }
@@ -22,16 +35,16 @@ export default function ProductTable(props) {
       key={product.name}
       />
     )
-    lastCategory = product.cateogry; //see last category
+    lastCategory = product.category; //see last category
   })
   return (
     <table>
-      <tread>
+      <thead>
         <tr>
           <th>Name</th>
           <th>Price</th>
         </tr>
-      </tread>
+      </thead>
       <tbody>
         {rows} 
       {/** 
