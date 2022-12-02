@@ -10,10 +10,10 @@ export default function FilterableProductTable(props) {
   const {products} = props;
 
   //search state
-  const [filterText, setFilterText] = useState('');
+  const [filterText, setFilterText] = useState('Hello World');
 
-  //
-  const [inStockOnly, setInStockOnly] = useState(false);
+  //state of "checked"
+  const [inStockOnly, setInStockOnly] = useState(true);
 
   //function for search
   const handleFilterText = (filterText) => {
@@ -27,8 +27,11 @@ export default function FilterableProductTable(props) {
 
   return (
     <div>
+      {/** State is hooked below, therefore refreshing that component/sub component
+       * Therefore, better performance
+       */}
       <SearchBar 
-        filterText = {filterText}
+        filterText = {filterText} 
         onFilterTextChange={handleFilterText}
         inStockOnly={inStockOnly} //state=state
         onInStockChange={handleInStockChange} //setter function/variable

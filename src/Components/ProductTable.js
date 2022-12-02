@@ -2,6 +2,9 @@ import React from 'react'
 import ProductCategoryRow from './ProductCategoryRow'
 import ProductRow from './ProductRow'
 export default function ProductTable(props) {
+  console.log("Here");
+  console.log(props.products);
+  console.log("Here");
   const { products, inStockOnly, filterText } = props;
     
   const rows = [];

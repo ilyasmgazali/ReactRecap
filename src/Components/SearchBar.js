@@ -26,7 +26,7 @@ export default function SearchBar(props) {
           onChange={handleStockChange}  
         />
         {' '}
-        Only show products in stock
+        Display In Stock Only
       </p>
     </form>
   )
